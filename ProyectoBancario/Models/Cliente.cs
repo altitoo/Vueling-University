@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace ProyectoBancario.Models
 {
-    public class Empleado : Usuario
+    public class Cliente : Usuario
     {
-        public Empleado(string nombre, string user, string pass)
+        List<CuentaBancaria> ListaCuentasBancarias = new List<CuentaBancaria>();
+        public Cliente(string nombre, string user, string pass)
         {
             Name = nombre;
             User = user;
             Password = new NetworkCredential("", pass).SecurePassword;
         }
+
     }
 }

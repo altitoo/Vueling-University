@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoBancario.Models
+namespace ProyectoBancario.Interfaces
 {
-    public class Banco
+    interface ICuentaBancariaActions
     {
     }
 }
