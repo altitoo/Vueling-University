@@ -11,5 +11,8 @@ namespace ProyectoBancario.Models
     {
         private string Iban { get; set; }
 
+        private decimal Saldo { get; set; }
+        
+
     }
 }
