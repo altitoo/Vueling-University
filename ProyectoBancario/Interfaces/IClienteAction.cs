@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProyectoBancario.Interfaces
 {
-    interface ICuentaBancariaActions
+    interface IClienteAction
     {
-        public abstract bool AddSaldo();
-        public abstract bool WithdrawSaldo();
-
+        public abstract bool SendSaldo();
+        public abstract bool AskSaldo();
     }
 }
