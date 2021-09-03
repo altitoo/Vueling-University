@@ -3,6 +3,7 @@ using ProyectoBancario.Models;
 
 namespace ProyectoBancario.Services
 {
+    
     public class AccountService : IAccountable
     {
         private readonly NotificationService serviceNotification = new NotificationService();
@@ -10,7 +11,7 @@ namespace ProyectoBancario.Services
         public void AddSaldo(Account account, decimal saldo)
         {
             account.Saldo += saldo;
-            string msg = $"Se ha añadido: {saldo} a tu cuenta tu saldo es de {account.Saldo}";
+            string msg = $"Se ha añadido: {saldo} a tu cuenta {account.Iban}, tu saldo actual es de {account.Saldo}";
             serviceNotification.Notification(msg);
         }
 
@@ -19,7 +20,7 @@ namespace ProyectoBancario.Services
             if (account.Saldo - saldo > 0)
             {
                 account.Saldo -= saldo;
-                string msg = $"Se ha añadido: {saldo} a tu cuenta tu saldo es de {account.Saldo}";
+                string msg = $"Se ha retirado: {saldo} de tu cuenta {account.Iban}, tu saldo actual es de {account.Saldo}";
                 serviceNotification.Notification(msg);
             }
             else
@@ -34,5 +35,6 @@ namespace ProyectoBancario.Services
         {
             client.ListaCuentasBancarias.Add(new Account());
         }
+        
     }
 }

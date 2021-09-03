@@ -11,14 +11,15 @@ namespace ProyectoBancario.Services
         public void AskSaldo(Account accSender, Account accReciver, decimal quantity)
         {
             string msgOk = $"Saldo recivido: {quantity}, Nuevo saldo {accReciver.Saldo} " +
-                    $"del User: {accReciver.Iban}";
+                    $"del User: {accReciver.Iban}" +
+                    $"\n Saldo {quantity} retirado de { accSender.Iban} nuevo saldo: {accSender.Saldo}";
             string msgNotOk = $"El usuario {accSender.Iban} no posee suficiente saldo," +
                     $"\n Saldo actual: {accSender.Saldo}" +
                     $"\n Saldo requerido: {quantity}";
 
             if (accSender.Saldo > quantity)
             {
-                Console.WriteLine($"Deseas mandar {quantity} de la cuenta {accSender.Iban} a {accReciver.Iban}");
+                Console.WriteLine($"Deseas mandar {quantity} de la cuenta {accSender.Iban} a la cuenta {accReciver.Iban}");
                 Console.WriteLine("yes/no");
                 if (serviceNotification.AskSendSaldo(Console.ReadLine()))
                 {
@@ -28,7 +29,7 @@ namespace ProyectoBancario.Services
                 }
                 else
                 {
-                    msgOk = $"El envio ha sido rechazado por {accSender.Iban}";
+                    msgOk = $"El envio ha sido rechazado por la cuenta {accSender.Iban}";
                     serviceNotification.Notification(msgOk);
                 }
             }
