@@ -3,9 +3,9 @@ using System;
 
 namespace ProyectoBancario.Models
 {
-    public class Account
+    public class Account 
     {
-        private AccountService service = new AccountService();
+        private AccountService service;
         public int Iban { get; set; }
 
         public decimal Saldo { get; set; }
@@ -14,6 +14,7 @@ namespace ProyectoBancario.Models
         {
             Iban = new Random().Next(1000000, 9999999);
             Saldo = 0;
+            service = new AccountService();
         }
 
         public void AddSaldo(int saldoAñadido)

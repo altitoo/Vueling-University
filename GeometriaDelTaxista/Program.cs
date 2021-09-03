@@ -9,8 +9,6 @@ namespace GeometriaDelTaxista
             DistanceService service = new DistanceService();
             Point p1 = new Point(1, 4);
             Point p2 = new Point(5, 8);
-            p1.
-
             Console.WriteLine(service.Calculate(p1, p2));
             
         }

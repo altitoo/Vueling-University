@@ -9,28 +9,24 @@ namespace GeometriaDelTaxista
     
     public class Point
     {
-        private readonly int _point1;
+        private readonly int _row;
        
-        private readonly int _point2;
+        private readonly int _column;
        
-        public Point(int x, int y)
+        public Point(int row, int column)
         {
-            _point1 = x;
-            _point1 = y;
+            _row = row;
+            _column = column;
         }
 
-        public ImmutableObject MyObject1 => new ImmutableObject(_point1);
-        public ImmutableObject MyObject2 => new ImmutableObject(_point2);
+        public int GetDistanceVector(Point endPoint)
+        {
+            return Math.Abs(_row - endPoint._column);
+        }
+        
+       
+
     }
     
-    public class ImmutableObject
-    {
-        private readonly int _num;
-        public int Num => _num;
-
-        public ImmutableObject(int num)
-        {
-            _num = num;
-        }
-    }
+    
 }
